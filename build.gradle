@@ -11,11 +11,14 @@ java {
 	sourceCompatibility = '17'
 }
 
-repositories {
-	mavenCentral()
+allprojects {
+	repositories {
+		mavenCentral()
+	}
 }
 
 dependencies {
+	implementation project(":core")
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'org.hsqldb:hsqldb'
