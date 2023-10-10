@@ -5,7 +5,8 @@ import io.soabase.recordbuilder.core.RecordBuilder;
 import java.math.BigDecimal;
 
 @RecordBuilder
-public record Transaction(String userId,
+public record Transaction(Long id,
+                          String userId,
                           Type type,
                           BigDecimal value,
                           BankAccount destinationAccount,

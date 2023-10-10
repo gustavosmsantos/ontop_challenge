@@ -1,3 +1,6 @@
 rootProject.name = 'ontop'
 
 include 'core'
+include 'web_adapter'
+include 'gateways'
+include 'repositories'

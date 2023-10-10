@@ -4,22 +4,18 @@ import com.gustavosantos.ontop.core.domain.BankAccount;
 import com.gustavosantos.ontop.core.domain.Transaction;
 import com.gustavosantos.ontop.core.ports.PaymentsGateway;
 import com.gustavosantos.ontop.core.ports.TransactionsRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+@RequiredArgsConstructor
 public class PayTransaction {
 
     private final PaymentsGateway paymentsGateway;
 
     private final TransactionsRepository transactionsRepository;
 
+    @Qualifier(value = "ontopBankAccount")
     private final BankAccount ontopAccount;
-
-    public PayTransaction(PaymentsGateway paymentsGateway,
-                          TransactionsRepository transactionsRepository,
-                          BankAccount ontopAccount) {
-        this.paymentsGateway = paymentsGateway;
-        this.transactionsRepository = transactionsRepository;
-        this.ontopAccount = ontopAccount;
-    }
 
     //TODO transactional context
     public void execute(String userId, String transactionId) {
