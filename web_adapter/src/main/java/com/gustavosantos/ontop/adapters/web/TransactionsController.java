@@ -20,7 +20,7 @@ public class TransactionsController {
     @PostMapping
     public ResponseEntity<String> createTransaction() {
         try {
-            transferUseCase.execute("user", BigDecimal.TEN);
+            transferUseCase.execute(1000L, BigDecimal.TEN);
         } catch (InsufficientFundsException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

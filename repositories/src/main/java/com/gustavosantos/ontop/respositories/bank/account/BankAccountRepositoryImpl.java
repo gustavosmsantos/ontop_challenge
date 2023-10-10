@@ -12,7 +12,7 @@ public class BankAccountRepositoryImpl implements BankAccountRepository {
     private final BankAccountJPARepository repository;
 
     @Override
-    public BankAccount findByUserId(String userId) {
+    public BankAccount findByUserId(Long userId) {
         repository.findByUserId(userId);
         return null;
     }

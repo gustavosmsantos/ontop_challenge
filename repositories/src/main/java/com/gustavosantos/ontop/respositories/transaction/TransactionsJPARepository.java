@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 public interface TransactionsJPARepository extends JpaRepository<TransactionEntity, Long> {
 
     @Query("select t from TransactionEntity t where t.id = :id and t.userId = :userId")
-    TransactionEntity findByUserAndId(@Param("userId") String userId,
-                                      @Param("id") String id);
+    TransactionEntity findByUserAndId(@Param("userId") Long userId,
+                                      @Param("id") Long id);
 
     @Modifying
     @Query("update TransactionEntity t set t.status = :status where t.id = :id")

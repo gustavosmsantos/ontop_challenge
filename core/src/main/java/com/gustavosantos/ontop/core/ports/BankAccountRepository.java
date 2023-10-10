@@ -4,6 +4,6 @@ import com.gustavosantos.ontop.core.domain.BankAccount;
 
 public interface BankAccountRepository {
 
-    BankAccount findByUserId(String userId);
+    BankAccount findByUserId(Long userId);
 
 }

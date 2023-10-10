@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public interface WalletsGateway {
 
-    Wallet retrieveWallet(String userId);
+    Wallet retrieveWallet(Long userId);
 
     void topUp(Wallet wallet, BigDecimal amount);
 

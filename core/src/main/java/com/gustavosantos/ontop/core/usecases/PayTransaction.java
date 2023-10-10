@@ -18,7 +18,7 @@ public class PayTransaction {
     private final BankAccount ontopAccount;
 
     //TODO transactional context
-    public void execute(String userId, String transactionId) {
+    public void execute(Long userId, Long transactionId) {
         Transaction transaction = transactionsRepository.findById(userId, transactionId);
         BankAccount destinationAccount = transaction.destinationAccount();
         paymentsGateway.executePayment(ontopAccount, destinationAccount, transaction.netAmount());

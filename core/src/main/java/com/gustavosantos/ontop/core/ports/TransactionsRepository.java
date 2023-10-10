@@ -6,7 +6,7 @@ public interface TransactionsRepository {
 
     void save(Transaction transaction);
 
-    Transaction findById(String userId, String id);
+    Transaction findById(Long userId, Long id);
 
     void updateTransactionStatus(Transaction transaction, Transaction.Status newStatus);
 

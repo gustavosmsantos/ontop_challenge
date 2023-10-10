@@ -17,7 +17,7 @@ public class TransactionsRepositoryImpl implements TransactionsRepository {
     }
 
     @Override
-    public Transaction findById(String userId, String id) {
+    public Transaction findById(Long userId, Long id) {
         repository.findByUserAndId(userId, id);
         return null;
     }

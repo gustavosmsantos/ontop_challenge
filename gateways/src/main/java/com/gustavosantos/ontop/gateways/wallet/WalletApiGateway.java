@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class WalletApiGateway implements WalletsGateway {
 
     @Override
-    public Wallet retrieveWallet(String userId) {
+    public Wallet retrieveWallet(Long userId) {
         log.info("retrieving wallet");
         return null;
     }
