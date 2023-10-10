@@ -13,9 +13,9 @@ import java.math.BigDecimal;
 public class OntopConfig {
 
     @Bean
-    public CompanyBankAccount ontopBankAccount(@Value("ontop.account.company_name") String companyName,
-                                               @Value("ontop.account.number") String accountNumber,
-                                               @Value("ontop.account.routing_number") String routingNumber) {
+    public CompanyBankAccount ontopBankAccount(@Value("${ontop.account.company_name}") String companyName,
+                                               @Value("${ontop.account.number}") String accountNumber,
+                                               @Value("${ontop.account.routing_number}") String routingNumber) {
         return CompanyBankAccountBuilder.builder()
                 .companyName(companyName)
                 .accountNumber(accountNumber)
@@ -24,7 +24,7 @@ public class OntopConfig {
     }
 
     @Bean
-    public TransactionsFactory transactionsFactory(@Value("ontop.transactions.fee") BigDecimal transactionsFee) {
+    public TransactionsFactory transactionsFactory(@Value("${ontop.transactions.fee}") BigDecimal transactionsFee) {
         return new TransactionsFactory(transactionsFee);
     }
 
