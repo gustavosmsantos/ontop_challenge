@@ -25,6 +25,10 @@ allprojects {
 		implementation 'org.springframework:spring-context'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+		//record builder
+		annotationProcessor 'io.soabase.record-builder:record-builder-processor:37'
+		compileOnly 'io.soabase.record-builder:record-builder-core:37'
+
 		//lombok
 		compileOnly 'org.projectlombok:lombok:1.18.30'
 		annotationProcessor 'org.projectlombok:lombok:1.18.30'

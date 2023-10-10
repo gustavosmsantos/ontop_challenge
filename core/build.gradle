@@ -1,8 +1,3 @@
-dependencies {
-    annotationProcessor 'io.soabase.record-builder:record-builder-processor:37'
-    compileOnly 'io.soabase.record-builder:record-builder-core:37'
-}
-
 tasks.named('test') {
     useJUnitPlatform()
 }

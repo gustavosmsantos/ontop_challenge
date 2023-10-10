@@ -1,6 +1,7 @@
 package com.gustavosantos.ontop.core.usecases;
 
 import com.gustavosantos.ontop.core.domain.BankAccount;
+import com.gustavosantos.ontop.core.domain.CompanyBankAccount;
 import com.gustavosantos.ontop.core.domain.Transaction;
 import com.gustavosantos.ontop.core.ports.PaymentsGateway;
 import com.gustavosantos.ontop.core.ports.TransactionsRepository;
@@ -14,8 +15,7 @@ public class PayTransaction {
 
     private final TransactionsRepository transactionsRepository;
 
-    @Qualifier(value = "ontopBankAccount")
-    private final BankAccount ontopAccount;
+    private final CompanyBankAccount ontopAccount;
 
     //TODO transactional context
     public void execute(Long userId, Long transactionId) {

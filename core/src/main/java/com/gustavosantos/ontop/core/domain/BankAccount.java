@@ -10,4 +10,9 @@ public record BankAccount(Long userId,
                           String nin,
                           String accountNumber,
                           String bankName) {
+
+    public String fullName() {
+        return String.join(" ", name, surname);
+    }
+
 }
