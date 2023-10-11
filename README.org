@@ -43,9 +43,7 @@ A transaction lifecycle has this the following state order: PENDING -> PROCESSIN
 
 ** Next steps
 
-- Handle concurrency scenarios: Since the project controls a finantial balance, it's very important to keep the consistency in mind. 
-The current implementation doesn't have any lock mechanism to prevent two service instances to decrease balance concurrently, 
-which could lead to a scenario where a user is able to execute a transfer without having funds.
+- Handle concurrency scenarios: Since the project controls a finantial balance, it's very important to keep the consistency in mind. The current implementation doesn't have any lock mechanism to prevent two service instances to decrease balance concurrently, which could lead to a scenario where a user is able to execute a transfer without having funds.
 - Finish adapter implementation (some mocks still present);
 - Increase test coverage, testing specially the adapters;
 - Process usecases within a transaction, to avoid entities being persisted in the presence of API issues;
