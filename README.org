@@ -5,7 +5,7 @@ This repository contains the solution to the Ontop challenge. It basicaly consis
 - wallets: logical representation of an user funds within the company;
 - payments: effectively transfer money from a Ontop account to a customer account.
 
-*Assumptions*
+** Assumptions
 
 - This project assumes that user identity is previously validated;
 - It requires a previously created bank account (this creation is out of the scope of the challenge). To enable tests a seed was included with same data from mocked services, considering the "happy path"
@@ -41,11 +41,21 @@ A transaction lifecycle has this the following state order: PENDING -> PROCESSIN
 - *SUCCEEDED*: money was successfully transferred;
 - *FAILED*: there was a problem processing the transaction payment. A compensational transaction (REFUND) is created to restore the wallet funds.
 
+** Running locally
+
+To run the application locally, execute the bootRun task from the project root:
+
+#+BEGIN_SRC bash
+  ./gradlew bootRun
+#+END_SRC
+
+ *Note*: in order to work properly, java 17+ is required;
+
 ** Next steps
 
 - Handle concurrency scenarios: Since the project controls a finantial balance, it's very important to keep the consistency in mind. The current implementation doesn't have any lock mechanism to prevent two service instances to decrease balance concurrently, which could lead to a scenario where a user is able to execute a transfer without having funds.
 - Finish adapter implementation (some mocks still present);
 - Increase test coverage, testing specially the adapters;
 - Process usecases within a transaction, to avoid entities being persisted in the presence of API issues;
-
-
+- Properly handle error scenarios (a lot of them are still uncovered);
+- Containerize the application, and include a docker-compose to make local tests easier;
