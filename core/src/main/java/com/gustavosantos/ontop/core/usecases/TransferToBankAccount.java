@@ -31,7 +31,7 @@ public class TransferToBankAccount {
     //TODO transactional context
     public void execute(Long userId, BigDecimal amount) throws InsufficientFundsException {
         Wallet wallet = walletsGateway.retrieveWallet(userId);
-        BankAccount destinationAccount = bankAccountRepository.findByUserId(userId);
+        BankAccount destinationAccount = bankAccountRepository.findByUserId(userId).orElseThrow();
         try {
             Transaction transaction = transactionsFactory.withdrawal(amount, wallet, destinationAccount);
             transactionsRepository.save(transaction);

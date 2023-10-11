@@ -43,7 +43,8 @@ dependencies {
 	runtimeOnly project(":gateways")
 	runtimeOnly project(":repositories")
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'org.hsqldb:hsqldb'
+	runtimeOnly 'org.hsqldb:hsqldb:2.6.1'
+	runtimeOnly 'org.flywaydb:flyway-core:9.22.2'
 }
 
 

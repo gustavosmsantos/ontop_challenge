@@ -3,6 +3,7 @@ package com.gustavosantos.ontop.core.domain;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,12 +11,13 @@ import java.util.Optional;
 public record Transaction(Long id,
                           Long userId,
                           Type type,
+                          Status status,
                           List<TransactionComponent> components,
                           BankAccount destinationAccount,
                           Transaction parentTransaction) implements TransactionBuilder.With {
 
     public boolean canBeRefunded() {
-       return type != Type.REFUND;
+       return type != Type.REFUND && status == Status.SUCCEEDED;
     }
 
     public BigDecimal grossAmount() {
@@ -29,7 +31,7 @@ public record Transaction(Long id,
 
     public enum Status {
 
-        PROCESSING, SUCCEEDED, FAILED
+        PENDING, PROCESSING, SUCCEEDED, FAILED
 
     }
 

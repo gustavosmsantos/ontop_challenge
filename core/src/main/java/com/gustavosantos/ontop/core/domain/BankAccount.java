@@ -3,7 +3,8 @@ package com.gustavosantos.ontop.core.domain;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
 @RecordBuilder
-public record BankAccount(Long userId,
+public record BankAccount(Long id,
+                          Long userId,
                           String name,
                           String surname,
                           String routingNumber,

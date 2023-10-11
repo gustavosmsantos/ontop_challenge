@@ -23,6 +23,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Optional;
 
 import static com.gustavosantos.ontop.core.domain.TransactionComponent.Type.FEE;
 import static com.gustavosantos.ontop.core.domain.TransactionComponent.Type.NET_AMOUNT;
@@ -62,7 +63,7 @@ public class TransferToBankAccountTest {
                 .accountNumber("12345")
                 .bankName("Users bank")
                 .build();
-        when(bankAccountRepository.findByUserId(userId)).thenReturn(bankAccount);
+        when(bankAccountRepository.findByUserId(userId)).thenReturn(Optional.of(bankAccount));
 
         usecase.execute(userId, BigDecimal.TEN);
 

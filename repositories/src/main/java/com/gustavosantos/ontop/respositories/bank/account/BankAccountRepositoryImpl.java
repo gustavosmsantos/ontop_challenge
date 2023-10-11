@@ -5,6 +5,8 @@ import com.gustavosantos.ontop.core.ports.BankAccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class BankAccountRepositoryImpl implements BankAccountRepository {
@@ -12,8 +14,7 @@ public class BankAccountRepositoryImpl implements BankAccountRepository {
     private final BankAccountJPARepository repository;
 
     @Override
-    public BankAccount findByUserId(Long userId) {
-        repository.findByUserId(userId);
-        return null;
+    public Optional<BankAccount> findByUserId(Long userId) {
+        return repository.findByUserId(userId).map(BankAccountEntity::toDomain);
     }
 }

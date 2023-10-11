@@ -47,6 +47,7 @@ public class TransactionsFactory {
 
         return TransactionBuilder.builder()
                 .userId(userWallet.ownerId())
+                .status(Transaction.Status.PENDING)
                 .type(Transaction.Type.WITHDRAWAL)
                 .components(this.getTransactionComponents(amount))
                 .destinationAccount(destinationAccount)

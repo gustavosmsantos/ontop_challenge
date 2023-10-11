@@ -13,7 +13,8 @@ public class TransactionsRepositoryImpl implements TransactionsRepository {
 
     @Override
     public void save(Transaction transaction) {
-        repository.save(TransactionEntity.from(transaction));
+        TransactionEntity entity = TransactionEntity.from(transaction);
+        repository.save(entity);
     }
 
     @Override
